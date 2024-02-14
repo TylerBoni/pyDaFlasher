@@ -15,6 +15,8 @@ class NotificationDelegate(DefaultDelegate):
 class FitUUIDs:
     Main_Characteristic_Write = "0000fee2-0000-1000-8000-00805f9b34fb"
     Main_Characteristic_Notify = "0000fee3-0000-1000-8000-00805f9b34fb"
+    HR_Service = "0000180d-0000-1000-8000-00805f9b34fb"
+    HR_Measurement_Notify = "00002a37-0000-1000-8000-00805f9b34fb"
     Service_Decive_Information = "0000180a-0000-1000-8000-00805f9b34fb"
     Characteristic_Manufacturer_Name = "00002a29-0000-1000-8000-00805f9b34fb"
     Notify_Config = "00002902-0000-1000-8000-00805f9b34fb"
@@ -28,14 +30,16 @@ class DFUActivity:
         self.selected_mac = None
         
     # enable notifications
-    def enable_notifications(self):
-        service = self.get_dfu_service()
+    def enable_notifications(self, service_uuid, characteristic_uuid):
+        service = self.get_service(uuid=service_uuid)
         if service is None:
             print("BLE service is null")
-        characteristic = self.get_dfu_characteristics(service, FitUUIDs.Main_Characteristic_Notify)
+        characteristic = self.get_characteristic(service, uuid=characteristic_uuid)
         if "NOTIFY" in characteristic.propertiesToString():
             print("Enabling notifications")
             self.peripheral.setDelegate(NotificationDelegate())
+            valHandle = characteristic.valHandle
+            print(f"valHandle = {valHandle}")
             self.peripheral.writeCharacteristic(characteristic.valHandle + 1, b"\x01\x00", withResponse=True)
             print("Notifications enabled!")
         else:
@@ -44,6 +48,7 @@ class DFUActivity:
     # Callback for when characteristic changes
     def handle_notification(self, cHandle, data):
         print("Notification:", data)
+        self.abort_update()
         
     def send_reboot_cmd(self):
         print("Starting reboot cmd")
@@ -51,25 +56,27 @@ class DFUActivity:
 
     def send_update_boot_cmd(self, loadedUpdateFile):
         print("Starting boot update")
-        size = len(loadedUpdateFile)
+        # load binary file
+        file = open(loadedUpdateFile, "rb")
+        size = len(file.read())
         print(f"file_size = {size}")
         self.send_cmd(0x63, bytes.int_to_byte_array(size))  # Convert size to little-endian bytes
         rebootStarted = True
         updateStarted = True
-        fullCRC = bytes.crc16(loadedUpdateFile)
+        fullCRC = bytes.crc16(file)
         # time.sleep(30)  
     
     def abort_update(self):
         print("Aborting update")
         self.send_cmd(0x63, bytes.int_to_byte_array(0xffffffff))
 
-    def get_dfu_service(self):
+    def get_service(self, uuid=FitUUIDs.Main_Service):
         services = self.peripheral.getServices()
         for service in services:
-            if service.uuid == FitUUIDs.Main_Service:
+            if service.uuid == uuid:
                 return service
 
-    def get_dfu_characteristics(self, service, uuid):
+    def get_characteristic(self, service, uuid):
         characteristics = service.getCharacteristics()
         for characteristic in characteristics:
             if characteristic.uuid == uuid:
@@ -102,10 +109,10 @@ class DFUActivity:
             return "the data to be written is empty"
         else:
             try:
-                service = self.get_dfu_service()
+                service = self.get_service()
                 if service is None:
                     return "BLE service is null"
-                characteristic = self.get_dfu_characteristics(service, FitUUIDs.Main_Characteristic_Write)
+                characteristic = self.get_characteristic(service, FitUUIDs.Main_Characteristic_Write)
                 if "WRITE" in characteristic.propertiesToString():
                     # if callback is not None and "NOTIFY" in characteristic.propertiesToString():
                     print("Writing with callback")
@@ -120,7 +127,7 @@ class DFUActivity:
     def start(self):
         self.selected_mac = "D2:B5:31:AC:FE:C5"
         self.connect(self.selected_mac)
-        # self.send_update_boot_cmd("somefile.bin")
+        # self.send_update_boot_cmd("../bootfiles/1_DaFitBootloader23Hacked.bin")
         # self.abort_update()
         self.send_reboot_cmd()
         self.reconnect()
@@ -144,7 +151,8 @@ class DFUActivity:
         self.selected_mac = mac_address
         self.peripheral = Peripheral(mac_address)
         print("Connected to", self.selected_mac)
-        self.enable_notifications()
+        # self.enable_notifications(FitUUIDs.HR_Service, FitUUIDs.HR_Measurement_Notify)
+        self.enable_notifications(FitUUIDs.Main_Service, FitUUIDs.Main_Characteristic_Notify)
 if __name__ == "__main__":
     try:  
         self = DFUActivity()

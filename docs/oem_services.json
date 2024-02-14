@@ -1,0 +1,168 @@
+{
+    "Generic Access": {
+        "uuid": "00001800-0000-1000-8000-00805f9b34fb",
+        "characteristics": [
+            {
+                "name": "Device Name",
+                "uuid": "00002a00-0000-1000-8000-00805f9b34fb",
+                "properties": "READ WRITE ",
+                "value": "b'P22B1'"
+            },
+            {
+                "name": "Appearance",
+                "uuid": "00002a01-0000-1000-8000-00805f9b34fb",
+                "properties": "READ ",
+                "value": "b'\\xc1\\x00'"
+            },
+            {
+                "name": "Peripheral Preferred Connection Parameters",
+                "uuid": "00002a04-0000-1000-8000-00805f9b34fb",
+                "properties": "READ ",
+                "value": "b'\\x10\\x00 \\x00\\x04\\x00X\\x02'"
+            },
+            {
+                "name": "Central Address Resolution",
+                "uuid": "00002aa6-0000-1000-8000-00805f9b34fb",
+                "properties": "READ ",
+                "value": "b'\\x01'"
+            }
+        ]
+    },
+    "Generic Attribute": {
+        "uuid": "00001801-0000-1000-8000-00805f9b34fb",
+        "characteristics": [
+            {
+                "name": "Service Changed",
+                "uuid": "00002a05-0000-1000-8000-00805f9b34fb",
+                "properties": "INDICATE ",
+                "value": ""
+            }
+        ]
+    },
+    "Device Information": {
+        "uuid": "0000180a-0000-1000-8000-00805f9b34fb",
+        "characteristics": [
+            {
+                "name": "Manufacturer Name String",
+                "uuid": "00002a29-0000-1000-8000-00805f9b34fb",
+                "properties": "READ ",
+                "value": "b'MOYOUNG'"
+            },
+            {
+                "name": "Model Number String",
+                "uuid": "00002a24-0000-1000-8000-00805f9b34fb",
+                "properties": "READ ",
+                "value": "b'DFU=0'"
+            },
+            {
+                "name": "Serial Number String",
+                "uuid": "00002a25-0000-1000-8000-00805f9b34fb",
+                "properties": "READ ",
+                "value": "b'5b41b186'"
+            },
+            {
+                "name": "Hardware Revision String",
+                "uuid": "00002a27-0000-1000-8000-00805f9b34fb",
+                "properties": "READ ",
+                "value": "b'A130CZI1.1P22B1'"
+            },
+            {
+                "name": "Software Revision String",
+                "uuid": "00002a28-0000-1000-8000-00805f9b34fb",
+                "properties": "READ ",
+                "value": "b'BYM-TWZ2-2.0.8'"
+            }
+        ]
+    },
+    "Battery Service": {
+        "uuid": "0000180f-0000-1000-8000-00805f9b34fb",
+        "characteristics": [
+            {
+                "name": "Battery Level",
+                "uuid": "00002a19-0000-1000-8000-00805f9b34fb",
+                "properties": "READ NOTIFY ",
+                "value": "b'b'"
+            }
+        ]
+    },
+    "feea": {
+        "uuid": "0000feea-0000-1000-8000-00805f9b34fb",
+        "characteristics": [
+            {
+                "name": "fee1",
+                "uuid": "0000fee1-0000-1000-8000-00805f9b34fb",
+                "properties": "READ NOTIFY ",
+                "value": "b'_\\x0b\\x00S\\t\\x00\\xa6\\x00\\x00'"
+            },
+            {
+                "name": "fee2",
+                "uuid": "0000fee2-0000-1000-8000-00805f9b34fb",
+                "properties": "WRITE ",
+                "value": ""
+            },
+            {
+                "name": "fee3",
+                "uuid": "0000fee3-0000-1000-8000-00805f9b34fb",
+                "properties": "NOTIFY ",
+                "value": ""
+            },
+            {
+                "name": "fee5",
+                "uuid": "0000fee5-0000-1000-8000-00805f9b34fb",
+                "properties": "WRITE NO RESPONSE ",
+                "value": ""
+            },
+            {
+                "name": "fee6",
+                "uuid": "0000fee6-0000-1000-8000-00805f9b34fb",
+                "properties": "WRITE NO RESPONSE ",
+                "value": ""
+            }
+        ]
+    },
+    "Heart Rate": {
+        "uuid": "0000180d-0000-1000-8000-00805f9b34fb",
+        "characteristics": [
+            {
+                "name": "Heart Rate Measurement",
+                "uuid": "00002a37-0000-1000-8000-00805f9b34fb",
+                "properties": "NOTIFY ",
+                "value": ""
+            },
+            {
+                "name": "Body Sensor Location",
+                "uuid": "00002a38-0000-1000-8000-00805f9b34fb",
+                "properties": "READ ",
+                "value": "b'\\x02'"
+            }
+        ]
+    },
+    "fee7": {
+        "uuid": "0000fee7-0000-1000-8000-00805f9b34fb",
+        "characteristics": [
+            {
+                "name": "fea1",
+                "uuid": "0000fea1-0000-1000-8000-00805f9b34fb",
+                "properties": "READ NOTIFY ",
+                "value": "b'\\x07_\\x0b\\x00S\\t\\x00\\xa6\\x00\\x00'"
+            },
+            {
+                "name": "fec9",
+                "uuid": "0000fec9-0000-1000-8000-00805f9b34fb",
+                "properties": "READ ",
+                "value": "b'\\xd2\\xb51\\xac\\xfe\\xc5'"
+            }
+        ]
+    },
+    "fcba": {
+        "uuid": "0000fcba-0000-1000-8000-00805f9b34fb",
+        "characteristics": [
+            {
+                "name": "fcc1",
+                "uuid": "0000fcc1-0000-1000-8000-00805f9b34fb",
+                "properties": "NOTIFY ",
+                "value": ""
+            }
+        ]
+    }
+}

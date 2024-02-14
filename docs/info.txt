@@ -1,37 +1,85 @@
 00001800-0000-1000-8000-00805f9b34fb: Generic Access
-00002a00-0000-1000-8000-00805f9b34fb
-00002a01-0000-1000-8000-00805f9b34fb
-00002a04-0000-1000-8000-00805f9b34fb
-00002aa6-0000-1000-8000-00805f9b34fb
+    00002a00-0000-1000-8000-00805f9b34fb
+    READ WRITE 
+    Characteristic <Device Name>
+    b'P22B1'
+    00002a01-0000-1000-8000-00805f9b34fb
+    READ 
+    Characteristic <Appearance>
+    b'\xc1\x00'
+    00002a04-0000-1000-8000-00805f9b34fb
+    READ 
+    Characteristic <Peripheral Preferred Connection Parameters>
+    b'\x10\x00 \x00\x04\x00X\x02'
+    00002aa6-0000-1000-8000-00805f9b34fb
+    READ 
+    Characteristic <Central Address Resolution>
+    b'\x01'
 00001801-0000-1000-8000-00805f9b34fb: Generic Attribute
-00002a05-0000-1000-8000-00805f9b34fb
-00001812-0000-1000-8000-00805f9b34fb: Human Interface Device
-00002a4e-0000-1000-8000-00805f9b34fb
-00002a4d-0000-1000-8000-00805f9b34fb
-00002a4d-0000-1000-8000-00805f9b34fb
-00002a4b-0000-1000-8000-00805f9b34fb
-00002a33-0000-1000-8000-00805f9b34fb
-00002a4a-0000-1000-8000-00805f9b34fb
-00002a4c-0000-1000-8000-00805f9b34fb
+    00002a05-0000-1000-8000-00805f9b34fb
+    INDICATE 
+    Characteristic <Service Changed>
 0000180a-0000-1000-8000-00805f9b34fb: Device Information
-00002a29-0000-1000-8000-00805f9b34fb
-00002a24-0000-1000-8000-00805f9b34fb
-00002a25-0000-1000-8000-00805f9b34fb
-00002a27-0000-1000-8000-00805f9b34fb
-00002a28-0000-1000-8000-00805f9b34fb
+    00002a29-0000-1000-8000-00805f9b34fb
+    READ 
+    Characteristic <Manufacturer Name String>
+    b'MOYOUNG'
+    00002a24-0000-1000-8000-00805f9b34fb
+    READ 
+    Characteristic <Model Number String>
+    b'DFU=0'
+    00002a25-0000-1000-8000-00805f9b34fb
+    READ 
+    Characteristic <Serial Number String>
+    b'5b41b186'
+    00002a27-0000-1000-8000-00805f9b34fb
+    READ 
+    Characteristic <Hardware Revision String>
+    b'A130CZI1.1P22B1'
+    00002a28-0000-1000-8000-00805f9b34fb
+    READ 
+    Characteristic <Software Revision String>
+    b'BYM-TWZ2-2.0.8'
 0000180f-0000-1000-8000-00805f9b34fb: Battery Service
-00002a19-0000-1000-8000-00805f9b34fb
+    00002a19-0000-1000-8000-00805f9b34fb
+    READ NOTIFY 
+    Characteristic <Battery Level>
+    b'b'
 0000feea-0000-1000-8000-00805f9b34fb: feea
-0000fee1-0000-1000-8000-00805f9b34fb
-0000fee2-0000-1000-8000-00805f9b34fb
-0000fee3-0000-1000-8000-00805f9b34fb
-0000fee5-0000-1000-8000-00805f9b34fb
-0000fee6-0000-1000-8000-00805f9b34fb
+    0000fee1-0000-1000-8000-00805f9b34fb
+    READ NOTIFY 
+    Characteristic <fee1>
+    b'_\x0b\x00S\t\x00\xa6\x00\x00'
+    0000fee2-0000-1000-8000-00805f9b34fb
+    WRITE 
+    Characteristic <fee2>
+    0000fee3-0000-1000-8000-00805f9b34fb
+    NOTIFY 
+    Characteristic <fee3>
+    0000fee5-0000-1000-8000-00805f9b34fb
+    WRITE NO RESPONSE 
+    Characteristic <fee5>
+    0000fee6-0000-1000-8000-00805f9b34fb
+    WRITE NO RESPONSE 
+    Characteristic <fee6>
 0000180d-0000-1000-8000-00805f9b34fb: Heart Rate
-00002a37-0000-1000-8000-00805f9b34fb
-00002a38-0000-1000-8000-00805f9b34fb
+    00002a37-0000-1000-8000-00805f9b34fb
+    NOTIFY 
+    Characteristic <Heart Rate Measurement>
+    00002a38-0000-1000-8000-00805f9b34fb
+    READ 
+    Characteristic <Body Sensor Location>
+    b'\x02'
 0000fee7-0000-1000-8000-00805f9b34fb: fee7
-0000fea1-0000-1000-8000-00805f9b34fb
-0000fec9-0000-1000-8000-00805f9b34fb
+    0000fea1-0000-1000-8000-00805f9b34fb
+    READ NOTIFY 
+    Characteristic <fea1>
+    b'\x07_\x0b\x00S\t\x00\xa6\x00\x00'
+    0000fec9-0000-1000-8000-00805f9b34fb
+    READ 
+    Characteristic <fec9>
+    b'\xd2\xb51\xac\xfe\xc5'
 0000fcba-0000-1000-8000-00805f9b34fb: fcba
-0000fcc1-0000-1000-8000-00805f9b34fb
+    0000fcc1-0000-1000-8000-00805f9b34fb
+    NOTIFY 
+    Characteristic <fcc1>

@@ -1,8 +1,10 @@
+# P22B1
+#
 Camera Shutter Notification:    b'\xfe\xea\x10\x05f'
 Rewind Notification:            b'\xfe\xea\x10\x06g\x01'
 Play Notification:              b'\xfe\xea\x10\x06g\x00'
 Fast-Forward Notification:      b'\xfe\xea\x10\x06g\x02'
 Find-My Notification:           b'\xfe\xea\x10\x05b'
 Unknown? Notification:          b'\xfe\xea\x10\x06b\x01'
-HR 78BPM Notification:          b'\xfe\xea\x10\x06mN' -It appears the last byte is the heart rate
-HR 70BPM Notification:          b'\xfe\xea\x10\x06mF'
+HR 78BPM Notification:          b'\xfe\xea\x10\x06mN' -It appears the last byte is the heart rate (N=78)
+HR 70BPM Notification:          b'\xfe\xea\x10\x06mF' (F=70)
